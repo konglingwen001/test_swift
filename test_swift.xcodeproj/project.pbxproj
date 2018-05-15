@@ -18,6 +18,12 @@
 		8D2F2F7F20A4911600A382CE /* MusicLibraryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D2F2F7D20A4911600A382CE /* MusicLibraryViewController.xib */; };
 		8D2F2F8220A4912300A382CE /* MyZoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2F2F8020A4912300A382CE /* MyZoneViewController.swift */; };
 		8D2F2F8320A4912300A382CE /* MyZoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D2F2F8120A4912300A382CE /* MyZoneViewController.xib */; };
+		8D4DFB6020A6CBF10017B406 /* NotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4DFB5F20A6CBF10017B406 /* NotesModel.swift */; };
+		8D4DFB6220A7BFA60017B406 /* 天空之城.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D4DFB6120A7BFA60017B406 /* 天空之城.plist */; };
+		8D4DFB6420A7C0EB0017B406 /* EditNoteInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4DFB6320A7C0EB0017B406 /* EditNoteInfo.swift */; };
+		8D4DFB6620A7C61C0017B406 /* DictDataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4DFB6520A7C61C0017B406 /* DictDataUtil.swift */; };
+		8D4DFB6820A806520017B406 /* BarSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4DFB6720A806520017B406 /* BarSize.swift */; };
+		8D4DFB6A20A80B530017B406 /* LineSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4DFB6920A80B530017B406 /* LineSize.swift */; };
 		8D9E826D209C8C52003001D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9E826C209C8C52003001D1 /* AppDelegate.swift */; };
 		8D9E826F209C8C52003001D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9E826E209C8C52003001D1 /* ViewController.swift */; };
 		8D9E8272209C8C52003001D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D9E8270209C8C52003001D1 /* Main.storyboard */; };
@@ -62,6 +68,12 @@
 		8D2F2F7D20A4911600A382CE /* MusicLibraryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicLibraryViewController.xib; sourceTree = "<group>"; };
 		8D2F2F8020A4912300A382CE /* MyZoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyZoneViewController.swift; sourceTree = "<group>"; };
 		8D2F2F8120A4912300A382CE /* MyZoneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyZoneViewController.xib; sourceTree = "<group>"; };
+		8D4DFB5F20A6CBF10017B406 /* NotesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesModel.swift; sourceTree = "<group>"; };
+		8D4DFB6120A7BFA60017B406 /* 天空之城.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "天空之城.plist"; sourceTree = "<group>"; };
+		8D4DFB6320A7C0EB0017B406 /* EditNoteInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteInfo.swift; sourceTree = "<group>"; };
+		8D4DFB6520A7C61C0017B406 /* DictDataUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictDataUtil.swift; sourceTree = "<group>"; };
+		8D4DFB6720A806520017B406 /* BarSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarSize.swift; sourceTree = "<group>"; };
+		8D4DFB6920A80B530017B406 /* LineSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSize.swift; sourceTree = "<group>"; };
 		8D9E8269209C8C52003001D1 /* test_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D9E826C209C8C52003001D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D9E826E209C8C52003001D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +165,19 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		8D4DFB5E20A6CBD80017B406 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				8D4DFB6120A7BFA60017B406 /* 天空之城.plist */,
+				8D4DFB5F20A6CBF10017B406 /* NotesModel.swift */,
+				8D4DFB6320A7C0EB0017B406 /* EditNoteInfo.swift */,
+				8D4DFB6520A7C61C0017B406 /* DictDataUtil.swift */,
+				8D4DFB6720A806520017B406 /* BarSize.swift */,
+				8D4DFB6920A80B530017B406 /* LineSize.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
 		8D9E8260209C8C52003001D1 = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +201,7 @@
 		8D9E826B209C8C52003001D1 /* test_swift */ = {
 			isa = PBXGroup;
 			children = (
+				8D4DFB5E20A6CBD80017B406 /* DataModel */,
 				8D2F2F6D20A490A000A382CE /* Search */,
 				8D2F2F6B20A4906B00A382CE /* Setting */,
 				8D2F2F6A20A4905C00A382CE /* Tool */,
@@ -339,6 +365,7 @@
 				8D2F2F7F20A4911600A382CE /* MusicLibraryViewController.xib in Resources */,
 				8D9E82A2209C9BF9003001D1 /* NavigatorView.xib in Resources */,
 				8D9E8272209C8C52003001D1 /* Main.storyboard in Resources */,
+				8D4DFB6220A7BFA60017B406 /* 天空之城.plist in Resources */,
 				8D9E82A0209C9BC3003001D1 /* NavigatorTabBar.xib in Resources */,
 				8D2F2F7120A490D000A382CE /* SearchViewController.xib in Resources */,
 				8D2F2F7520A490E200A382CE /* SettingViewController.xib in Resources */,
@@ -366,17 +393,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D4DFB6420A7C0EB0017B406 /* EditNoteInfo.swift in Sources */,
 				8D2F2F6720A48B4F00A382CE /* NavigatorDelegate.swift in Sources */,
 				8D2F2F7020A490D000A382CE /* SearchViewController.swift in Sources */,
 				8D9E82A8209C9C5D003001D1 /* NavigatorView.swift in Sources */,
 				8D2F2F8220A4912300A382CE /* MyZoneViewController.swift in Sources */,
 				8D2F2F7420A490E200A382CE /* SettingViewController.swift in Sources */,
+				8D4DFB6020A6CBF10017B406 /* NotesModel.swift in Sources */,
 				8D2F2F7E20A4911600A382CE /* MusicLibraryViewController.swift in Sources */,
 				8D9E82A6209C9C42003001D1 /* NavigatorItem.swift in Sources */,
 				8D9E826F209C8C52003001D1 /* ViewController.swift in Sources */,
 				8D9E829E209C9497003001D1 /* NavigatorTabBar.swift in Sources */,
 				8D2F2F7820A490F100A382CE /* ToolViewController.swift in Sources */,
+				8D4DFB6A20A80B530017B406 /* LineSize.swift in Sources */,
 				8D9E826D209C8C52003001D1 /* AppDelegate.swift in Sources */,
+				8D4DFB6620A7C61C0017B406 /* DictDataUtil.swift in Sources */,
+				8D4DFB6820A806520017B406 /* BarSize.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

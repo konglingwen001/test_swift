@@ -8,12 +8,21 @@
 
 import UIKit
 
-class MyZoneViewController: UIViewController {
-
+class MyZoneViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet var guitarNoteList: UITableView!
+    
+    var notesModel: NotesModel? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        notesModel = NotesModel.getInstance()
 
-        // Do any additional setup after loading the view.
+        guitarNoteList.delegate = self
+        guitarNoteList.dataSource = self
+        
+        self.guitarNoteList.register(UITableViewCell().classForCoder, forCellReuseIdentifier: "cell")
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +30,20 @@ class MyZoneViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return notesModel!.getGuitarNotesFileNum()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        cell.textLabel?.text = notesModel!.getGuitarNotesFileName(index: indexPath.row)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
 
     /*
     // MARK: - Navigation
