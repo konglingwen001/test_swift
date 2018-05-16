@@ -1,6 +1,6 @@
 //
 //  MyZoneViewController.swift
-//  test_swift:test
+//  test_swift
 //
 //  Created by 孔令文 on 2018/5/10.
 //  Copyright © 2018年 孔令文. All rights reserved.
