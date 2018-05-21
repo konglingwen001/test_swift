@@ -29,7 +29,7 @@ class ViewController: UITabBarController, NavigatorDelegate {
         self.addChildViewController(toolViewController)
         self.addChildViewController(settingViewController)
         
-        self.selectedIndex = 2;
+        self.selectedIndex = 1;
         
     }
 

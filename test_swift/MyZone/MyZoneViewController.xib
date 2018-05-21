@@ -12,8 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyZoneViewController" customModule="test_swift" customModuleProvider="target">
             <connections>
-                <outlet property="guitarNoteList" destination="wdX-8r-EX5" id="aj1-nq-ZQj"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="guitarNoteList" destination="wdX-8r-EX5" id="RP5-EG-SYF"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="kD7-r0-t6F"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

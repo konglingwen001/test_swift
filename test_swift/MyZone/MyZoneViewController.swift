@@ -31,18 +31,29 @@ class MyZoneViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notesModel!.getGuitarNotesFileNum()
+        return notesModel!.getGuitarNotesFileNum() + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        cell.textLabel?.text = notesModel!.getGuitarNotesFileName(index: indexPath.row)
+        if indexPath.row == notesModel!.getGuitarNotesFileNum() {
+            cell.textLabel?.text = "新建吉他谱"
+        } else {
+            cell.textLabel?.text = notesModel!.getGuitarNotesFileName(index: indexPath.row)
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if indexPath.row < notesModel!.getGuitarNotesFileNum() {
+            notesModel?.setGuitarNotesWithNotesTitle(noteTitle: (tableView.cellForRow(at: indexPath)?.textLabel?.text)!)
+            let guitarNoteViewController = UINavigationController(rootViewController: GuitarNoteViewController())
+            
+            present(guitarNoteViewController, animated: true, completion: nil)
+        } else {
+            // TODO
+        }
     }
 
     /*

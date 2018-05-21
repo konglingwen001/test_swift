@@ -11,15 +11,19 @@ import UIKit
 
 class NotesModel: NSObject {
     
-    public let TYPE_MINIM: String = "2"
-    public let TYPE_CROTCHET: String = "4"
-    public let TYPE_QUAVER: String = "8"
-    public let TYPE_DEMIQUAVER: String = "16"
+    public static let TYPE_MINIM: String = "2"
+    public static let TYPE_CROTCHET: String = "4"
+    public static let TYPE_QUAVER: String = "8"
+    public static let TYPE_DEMIQUAVER: String = "16"
     
-    public let MINIM_WIDTH: Float = 15 * 1.5 * 1.5 * 1.5;
-    public let CROTCHETA_WIDTH: Float = 15 * 1.5 * 1.5;
-    public let QUAVER_WIDTH: Float = 15 * 1.5;
-    public let DEMIQUAVER_WIDTH: Float = 15;
+    public static let LINE_START_X: CGFloat = 15
+    public static let LINE_START_Y: CGFloat = 15
+    public static let NOTE_SIZE: CGFloat = 15
+    public static let LINE_WIDTH: CGFloat = 15
+    public let MINIM_WIDTH: CGFloat = NOTE_SIZE * 1.5 * 1.5 * 1.5;
+    public let CROTCHETA_WIDTH: CGFloat = NOTE_SIZE * 1.5 * 1.5;
+    public let QUAVER_WIDTH: CGFloat = NOTE_SIZE * 1.5;
+    public let DEMIQUAVER_WIDTH: CGFloat = NOTE_SIZE;
     
     private static var instance: NotesModel? = nil
     
@@ -29,7 +33,7 @@ class NotesModel: NSObject {
     var guitarNotesFiles: NSMutableArray = NSMutableArray()
     var rootNoteDic: NSMutableDictionary? = nil
     var currEditNote: EditNoteInfo?
-    var notesSizeArray: NSMutableArray? = nil
+    var notesSizeArray: NSMutableArray = NSMutableArray()
     
     static func getInstance() -> NotesModel {
         if instance == nil {
@@ -71,6 +75,33 @@ class NotesModel: NSObject {
         return self
     }
     
+    func getLineWidth() -> CGFloat {
+        return NotesModel.LINE_WIDTH
+    }
+    
+    func getNoteSize() -> CGFloat {
+        return NotesModel.NOTE_SIZE
+    }
+    
+    func getMinimWidth() -> CGFloat {
+        return MINIM_WIDTH
+    }
+    
+    func getCrotchetaWidth() -> CGFloat {
+        return CROTCHETA_WIDTH
+    }
+    
+    func getQuaverWidth() -> CGFloat {
+        return QUAVER_WIDTH
+    }
+    
+    func getDemiquaverWidth() -> CGFloat {
+        return DEMIQUAVER_WIDTH
+    }
+    
+    func getGuitarNoteName() -> String {
+        return DictDataUtil.getGuitarNotesTitle(noteNoData: rootNoteDic!)
+    }
     
     func getGuitarNotesFileNum() -> Int {
         return guitarNotesFiles.count
@@ -82,6 +113,7 @@ class NotesModel: NSObject {
     
     func setGuitarNotesWithNotesTitle(noteTitle: String) {
         rootNoteDic = getGuitarNotesFromGuitarNotesTitle(guitarNotesTitle: noteTitle)
+        calNotesSize();
     }
     
     func getGuitarNotesFromGuitarNotesTitle(guitarNotesTitle: String) -> NSMutableDictionary {
@@ -273,10 +305,10 @@ class NotesModel: NSObject {
     }
     
     
-    func calBarSizeWithNoteNoArray(noteNoDataArray: NSMutableArray, currentMinimWidth: Float, currentCrotchetaWidth: Float, currentQuaverWidth: Float, currentDemiquaverWidth: Float) -> BarSize {
+    func calBarSizeWithNoteNoArray(noteNoDataArray: NSMutableArray, currentMinimWidth: CGFloat, currentCrotchetaWidth: CGFloat, currentQuaverWidth: CGFloat, currentDemiquaverWidth: CGFloat) -> BarSize {
     
         // 当前小节宽度初始化
-        var barWidth: Float = 0
+        var barWidth: CGFloat = 0
     
         // 音符个数初始化
         var minimNum: Int = 0
@@ -290,13 +322,13 @@ class NotesModel: NSObject {
         for noteNo in 0 ..< noteNoCount {
             noteType = DictDataUtil.getNoteType(noteNoData: noteNoDataArray.object(at: noteNo) as! NSMutableDictionary)
             switch (noteType) {
-            case TYPE_MINIM:
+            case NotesModel.TYPE_MINIM:
                 minimNum += 1
-            case TYPE_CROTCHET:
+            case NotesModel.TYPE_CROTCHET:
                 crotchetaNum += 1
-            case TYPE_QUAVER:
+            case NotesModel.TYPE_QUAVER:
                 quaverNum += 1
-            case TYPE_DEMIQUAVER:
+            case NotesModel.TYPE_DEMIQUAVER:
                 demiquaverNum += 1
             default:
                 NSLog("noteType ERROR")
@@ -305,23 +337,23 @@ class NotesModel: NSObject {
     
         // 最后一个音符宽度
         switch (noteType) {
-        case TYPE_MINIM:
+        case NotesModel.TYPE_MINIM:
             minimNum += 1
-        case TYPE_CROTCHET:
+        case NotesModel.TYPE_CROTCHET:
             crotchetaNum += 1
-        case TYPE_QUAVER:
+        case NotesModel.TYPE_QUAVER:
             quaverNum += 1
-        case TYPE_DEMIQUAVER:
+        case NotesModel.TYPE_DEMIQUAVER:
             demiquaverNum += 1
         default:
             NSLog("noteType ERROR")
         }
     
         // 计算小节宽度总和
-        barWidth += Float(minimNum) * currentMinimWidth
-        barWidth += Float(crotchetaNum) * currentCrotchetaWidth
-        barWidth += Float(quaverNum) * currentQuaverWidth
-        barWidth += Float(demiquaverNum) * currentDemiquaverWidth
+        barWidth += CGFloat(minimNum) * currentMinimWidth
+        barWidth += CGFloat(crotchetaNum) * currentCrotchetaWidth
+        barWidth += CGFloat(quaverNum) * currentQuaverWidth
+        barWidth += CGFloat(demiquaverNum) * currentDemiquaverWidth
     
         // 保存结果并返回
         let barSize = BarSize()
@@ -335,18 +367,18 @@ class NotesModel: NSObject {
     }
     
     func getNotesSizeArray() -> NSMutableArray {
-        return notesSizeArray!
+        return notesSizeArray
     }
     
     func getLineSize(lineNo: Int) -> LineSize? {
-        if (lineNo >= notesSizeArray!.count) {
-            NSLog("lineNo(\(lineNo)) is out of size(\(notesSizeArray!.count))");
+        if (lineNo >= notesSizeArray.count) {
+            NSLog("lineNo(\(lineNo)) is out of size(\(notesSizeArray.count))");
             return nil;
         }
-        return notesSizeArray!.object(at: lineNo) as? LineSize;
+        return notesSizeArray[lineNo] as? LineSize;
     }
     
-    func getBarWidthArray(lineNo: Int) -> NSMutableArray {
+    func getBarWidthArray(lineNo: Int) -> [CGFloat] {
         return getLineSize(lineNo: lineNo)!.barWidthArray;
     }
     
@@ -362,16 +394,17 @@ class NotesModel: NSObject {
         var quaverSum: Int = 0;          // 整行八分音符总数
         var demiquaverSum: Int = 0;      // 整行十六分音符总数
     
-        let lineTotalWidth: Float = getLineTotalWidth();
+        let lineTotalWidth: CGFloat = getLineTotalWidth();
     
         var barSize: BarSize;
         var isFirstBarInLine: Bool = true;
         var startBarNo: Int = 0;         // 每行第一小节的barNo
-        var lineBarWidth: Float = 0;     // 行所有小节总宽度
+        var lineBarWidth: CGFloat = 0;     // 行所有小节总宽度
         let barNoArray: NSMutableArray? = getBarNoDataArray();
-        notesSizeArray!.removeAllObjects();
-        for var barNo in 0 ..< barNoArray!.count {
-            barSize = calBarSizeWithNoteNoArray(noteNoDataArray: barNoArray?.object(at: barNo) as! NSMutableArray, currentMinimWidth: MINIM_WIDTH, currentCrotchetaWidth: CROTCHETA_WIDTH, currentQuaverWidth: QUAVER_WIDTH, currentDemiquaverWidth: DEMIQUAVER_WIDTH)
+        notesSizeArray.removeAllObjects();
+        var barNo = 0
+        while barNo < barNoArray!.count {
+            barSize = calBarSizeWithNoteNoArray(noteNoDataArray: barNoArray?.object(at: barNo) as! NSMutableArray, currentMinimWidth: getMinimWidth(), currentCrotchetaWidth: getCrotchetaWidth(), currentQuaverWidth: getQuaverWidth(), currentDemiquaverWidth: getDemiquaverWidth())
         
             minimNum = barSize.minimNum
             crotchetaNum = barSize.crotchetaNum
@@ -392,13 +425,13 @@ class NotesModel: NSObject {
             } else {
         
                 if (isFirstBarInLine) {
-                minimSum += minimNum
-                crotchetaSum += crotchetaNum
-                quaverSum += quaverNum
-                demiquaverSum += demiquaverNum
+                    minimSum += minimNum
+                    crotchetaSum += crotchetaNum
+                    quaverSum += quaverNum
+                    demiquaverSum += demiquaverNum
                 }
                 let lineSize: LineSize = calLineSize(startBarNo: startBarNo, endBarNo: barNo, minimSum: minimSum, crotchetaSum: crotchetaSum, quaverSum: quaverSum, demiquaverSum: demiquaverSum)
-                notesSizeArray!.add(lineSize)
+                notesSizeArray.add(lineSize)
             
                 // 重置参数
                 // 下一行小节开始序号，设置为丢弃的小节序号
@@ -418,19 +451,20 @@ class NotesModel: NSObject {
                 isFirstBarInLine = true
         
             }
+            barNo += 1
         }
     
         // 最后一行，以最小音符长度计算尺寸
     
         // 计算行小节宽度
         let lineSize: LineSize = calLineSize(startBarNo: startBarNo, endBarNo: barNoArray!.count, minimSum: minimSum, crotchetaSum: crotchetaSum, quaverSum: quaverSum, demiquaverSum: demiquaverSum)
-        notesSizeArray!.add(lineSize);
+        notesSizeArray.add(lineSize);
     
     }
     
     func calLineSize(startBarNo: Int, endBarNo: Int, minimSum: Int, crotchetaSum: Int, quaverSum: Int, demiquaverSum: Int) -> LineSize {
     
-        let guitarNotesWidth: Float = getLineTotalWidth()
+        let guitarNotesWidth: CGFloat = getLineTotalWidth()
         let barNoArray: NSMutableArray? = getBarNoDataArray()
     
         let lineSize: LineSize = LineSize()
@@ -438,14 +472,14 @@ class NotesModel: NSObject {
         lineSize.barNum = endBarNo - startBarNo
     
         // 音符个数减去最后要丢弃的一小节的音符数，重新计算音符宽度
-        var tmpData: Float = Float(demiquaverSum)
-        tmpData += Float(quaverSum) * 1.5
-        tmpData += Float(crotchetaSum) * 1.5 * 1.5
-        tmpData += Float(minimSum) * 1.5 * 1.5 * 1.5
-        let currentDemiquaverWidth: Float = guitarNotesWidth / tmpData
-        let currentQuaverWidth: Float = currentDemiquaverWidth * 1.5
-        let currentCrotchetaWidth: Float = currentQuaverWidth * 1.5
-        let currentMinimWidth: Float = currentCrotchetaWidth * 1.5
+        var tmpData: CGFloat = CGFloat(demiquaverSum)
+        tmpData += CGFloat(quaverSum) * 1.5
+        tmpData += CGFloat(crotchetaSum) * 1.5 * 1.5
+        tmpData += CGFloat(minimSum) * 1.5 * 1.5 * 1.5
+        let currentDemiquaverWidth: CGFloat = guitarNotesWidth / tmpData
+        let currentQuaverWidth: CGFloat = currentDemiquaverWidth * 1.5
+        let currentCrotchetaWidth: CGFloat = currentQuaverWidth * 1.5
+        let currentMinimWidth: CGFloat = currentCrotchetaWidth * 1.5
         
         lineSize.demiquaverWidth = currentDemiquaverWidth
         lineSize.quaverWidth = currentQuaverWidth
@@ -453,23 +487,23 @@ class NotesModel: NSObject {
         lineSize.minimWidth = currentMinimWidth
     
         // 通过计算得到的音符宽度重新计算小节宽度，保存在数组中
-        var lineBarWidth: Float = 0
+        var lineBarWidth: CGFloat = 0
         var barSize: BarSize
-        let barWidthArray: NSMutableArray = NSMutableArray()
-        barWidthArray.add(0.0)
+        var barWidthArray: [CGFloat] = []
+        barWidthArray.append(0.0)
         for i in startBarNo ..< endBarNo - 1 {
             barSize = calBarSizeWithNoteNoArray(noteNoDataArray: barNoArray?.object(at: i) as! NSMutableArray, currentMinimWidth: currentMinimWidth, currentCrotchetaWidth: currentCrotchetaWidth, currentQuaverWidth: currentQuaverWidth, currentDemiquaverWidth: currentDemiquaverWidth)
             lineBarWidth += barSize.barWidth;
-            barWidthArray.add(lineBarWidth);
+            barWidthArray.append(lineBarWidth);
         }
-        barWidthArray.add(guitarNotesWidth);
+        barWidthArray.append(guitarNotesWidth);
         lineSize.barWidthArray = barWidthArray
     
         return lineSize;
     }
     
-    func getLineTotalWidth() -> Float {
-        let guitarNotesWidth: Float = Float(UIScreen.main.bounds.width)
+    func getLineTotalWidth() -> CGFloat {
+        let guitarNotesWidth: CGFloat = CGFloat(UIScreen.main.bounds.width) - getLineWidth() * 2
         return guitarNotesWidth
     }
     
@@ -479,13 +513,13 @@ class NotesModel: NSObject {
         let tempo: String = DictDataUtil.getFlat(noteNoData: rootNoteDic!)
         let totalNoteType: String = String(tempo.split(separator: "/")[1])
         switch (totalNoteType) {
-        case TYPE_MINIM:
+        case NotesModel.TYPE_MINIM:
             flatTime = 0.5;
-        case TYPE_CROTCHET:
+        case NotesModel.TYPE_CROTCHET:
             flatTime = 0.25;
-        case TYPE_QUAVER:
+        case NotesModel.TYPE_QUAVER:
             flatTime = 0.125;
-        case TYPE_DEMIQUAVER:
+        case NotesModel.TYPE_DEMIQUAVER:
             flatTime = 0.0625;
         default:
             NSLog("noteType ERROR")

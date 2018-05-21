@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D26B6F120B080F300521803 /* NoteTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D26B6F020B080F300521803 /* NoteTableViewDelegate.swift */; };
+		8D26B6F320B2EEF200521803 /* EditNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D26B6F220B2EEF200521803 /* EditNoteView.swift */; };
+		8D26B6F520B2EF0100521803 /* EditNoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D26B6F420B2EF0100521803 /* EditNoteView.xib */; };
 		8D2F2F6720A48B4F00A382CE /* NavigatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2F2F6620A48B4F00A382CE /* NavigatorDelegate.swift */; };
 		8D2F2F7020A490D000A382CE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2F2F6E20A490D000A382CE /* SearchViewController.swift */; };
 		8D2F2F7120A490D000A382CE /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D2F2F6F20A490D000A382CE /* SearchViewController.xib */; };
@@ -24,6 +27,10 @@
 		8D4DFB6620A7C61C0017B406 /* DictDataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4DFB6520A7C61C0017B406 /* DictDataUtil.swift */; };
 		8D4DFB6820A806520017B406 /* BarSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4DFB6720A806520017B406 /* BarSize.swift */; };
 		8D4DFB6A20A80B530017B406 /* LineSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4DFB6920A80B530017B406 /* LineSize.swift */; };
+		8D4DFB6D20AF0E380017B406 /* GuitarNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4DFB6B20AF0E380017B406 /* GuitarNoteViewController.swift */; };
+		8D4DFB6E20AF0E380017B406 /* GuitarNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D4DFB6C20AF0E380017B406 /* GuitarNoteViewController.xib */; };
+		8D4DFB7120AF9B080017B406 /* GuitarNoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4DFB6F20AF9B080017B406 /* GuitarNoteTableViewCell.swift */; };
+		8D4DFB7220AF9B080017B406 /* GuitarNoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D4DFB7020AF9B080017B406 /* GuitarNoteTableViewCell.xib */; };
 		8D9E826D209C8C52003001D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9E826C209C8C52003001D1 /* AppDelegate.swift */; };
 		8D9E826F209C8C52003001D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9E826E209C8C52003001D1 /* ViewController.swift */; };
 		8D9E8272209C8C52003001D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D9E8270209C8C52003001D1 /* Main.storyboard */; };
@@ -57,6 +64,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8D26B6F020B080F300521803 /* NoteTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewDelegate.swift; sourceTree = "<group>"; };
+		8D26B6F220B2EEF200521803 /* EditNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteView.swift; sourceTree = "<group>"; };
+		8D26B6F420B2EF0100521803 /* EditNoteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditNoteView.xib; sourceTree = "<group>"; };
 		8D2F2F6620A48B4F00A382CE /* NavigatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorDelegate.swift; sourceTree = "<group>"; };
 		8D2F2F6E20A490D000A382CE /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8D2F2F6F20A490D000A382CE /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
@@ -74,6 +84,10 @@
 		8D4DFB6520A7C61C0017B406 /* DictDataUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictDataUtil.swift; sourceTree = "<group>"; };
 		8D4DFB6720A806520017B406 /* BarSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarSize.swift; sourceTree = "<group>"; };
 		8D4DFB6920A80B530017B406 /* LineSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSize.swift; sourceTree = "<group>"; };
+		8D4DFB6B20AF0E380017B406 /* GuitarNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuitarNoteViewController.swift; sourceTree = "<group>"; };
+		8D4DFB6C20AF0E380017B406 /* GuitarNoteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GuitarNoteViewController.xib; sourceTree = "<group>"; };
+		8D4DFB6F20AF9B080017B406 /* GuitarNoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuitarNoteTableViewCell.swift; sourceTree = "<group>"; };
+		8D4DFB7020AF9B080017B406 /* GuitarNoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GuitarNoteTableViewCell.xib; sourceTree = "<group>"; };
 		8D9E8269209C8C52003001D1 /* test_swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test_swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D9E826C209C8C52003001D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D9E826E209C8C52003001D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +139,13 @@
 			children = (
 				8D2F2F8020A4912300A382CE /* MyZoneViewController.swift */,
 				8D2F2F8120A4912300A382CE /* MyZoneViewController.xib */,
+				8D4DFB6B20AF0E380017B406 /* GuitarNoteViewController.swift */,
+				8D4DFB6C20AF0E380017B406 /* GuitarNoteViewController.xib */,
+				8D4DFB6F20AF9B080017B406 /* GuitarNoteTableViewCell.swift */,
+				8D4DFB7020AF9B080017B406 /* GuitarNoteTableViewCell.xib */,
+				8D26B6F020B080F300521803 /* NoteTableViewDelegate.swift */,
+				8D26B6F220B2EEF200521803 /* EditNoteView.swift */,
+				8D26B6F420B2EF0100521803 /* EditNoteView.xib */,
 			);
 			path = MyZone;
 			sourceTree = "<group>";
@@ -178,6 +199,13 @@
 			path = DataModel;
 			sourceTree = "<group>";
 		};
+		8D4DFB7320AFB33B0017B406 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		8D9E8260209C8C52003001D1 = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +229,7 @@
 		8D9E826B209C8C52003001D1 /* test_swift */ = {
 			isa = PBXGroup;
 			children = (
+				8D4DFB7320AFB33B0017B406 /* Utils */,
 				8D4DFB5E20A6CBD80017B406 /* DataModel */,
 				8D2F2F6D20A490A000A382CE /* Search */,
 				8D2F2F6B20A4906B00A382CE /* Setting */,
@@ -357,6 +386,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D4DFB6E20AF0E380017B406 /* GuitarNoteViewController.xib in Resources */,
+				8D26B6F520B2EF0100521803 /* EditNoteView.xib in Resources */,
 				8D9E8277209C8C52003001D1 /* LaunchScreen.storyboard in Resources */,
 				8D9E82A4209C9C0B003001D1 /* NavigatorItem.xib in Resources */,
 				8D2F2F7920A490F100A382CE /* ToolViewController.xib in Resources */,
@@ -365,6 +396,7 @@
 				8D2F2F7F20A4911600A382CE /* MusicLibraryViewController.xib in Resources */,
 				8D9E82A2209C9BF9003001D1 /* NavigatorView.xib in Resources */,
 				8D9E8272209C8C52003001D1 /* Main.storyboard in Resources */,
+				8D4DFB7220AF9B080017B406 /* GuitarNoteTableViewCell.xib in Resources */,
 				8D4DFB6220A7BFA60017B406 /* 天空之城.plist in Resources */,
 				8D9E82A0209C9BC3003001D1 /* NavigatorTabBar.xib in Resources */,
 				8D2F2F7120A490D000A382CE /* SearchViewController.xib in Resources */,
@@ -396,16 +428,20 @@
 				8D4DFB6420A7C0EB0017B406 /* EditNoteInfo.swift in Sources */,
 				8D2F2F6720A48B4F00A382CE /* NavigatorDelegate.swift in Sources */,
 				8D2F2F7020A490D000A382CE /* SearchViewController.swift in Sources */,
+				8D26B6F120B080F300521803 /* NoteTableViewDelegate.swift in Sources */,
 				8D9E82A8209C9C5D003001D1 /* NavigatorView.swift in Sources */,
 				8D2F2F8220A4912300A382CE /* MyZoneViewController.swift in Sources */,
 				8D2F2F7420A490E200A382CE /* SettingViewController.swift in Sources */,
 				8D4DFB6020A6CBF10017B406 /* NotesModel.swift in Sources */,
+				8D26B6F320B2EEF200521803 /* EditNoteView.swift in Sources */,
 				8D2F2F7E20A4911600A382CE /* MusicLibraryViewController.swift in Sources */,
 				8D9E82A6209C9C42003001D1 /* NavigatorItem.swift in Sources */,
 				8D9E826F209C8C52003001D1 /* ViewController.swift in Sources */,
 				8D9E829E209C9497003001D1 /* NavigatorTabBar.swift in Sources */,
 				8D2F2F7820A490F100A382CE /* ToolViewController.swift in Sources */,
 				8D4DFB6A20A80B530017B406 /* LineSize.swift in Sources */,
+				8D4DFB7120AF9B080017B406 /* GuitarNoteTableViewCell.swift in Sources */,
+				8D4DFB6D20AF0E380017B406 /* GuitarNoteViewController.swift in Sources */,
 				8D9E826D209C8C52003001D1 /* AppDelegate.swift in Sources */,
 				8D4DFB6620A7C61C0017B406 /* DictDataUtil.swift in Sources */,
 				8D4DFB6820A806520017B406 /* BarSize.swift in Sources */,

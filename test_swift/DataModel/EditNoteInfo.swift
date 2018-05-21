@@ -52,5 +52,12 @@ class EditNoteInfo {
         _stringNo = stringNo
     }
     
+    func isEqualTo(editNote: EditNoteInfo) -> Bool {
+        if _barNo == editNote.barNo && _noteNo == editNote.noteNo && _stringNo == editNote.stringNo {
+            return true
+        } else {
+            return false
+        }
+    }
     
 }

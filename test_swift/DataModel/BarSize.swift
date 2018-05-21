@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import UIKit
 
 class BarSize: NSObject {
     
-    private var _barWidth: Float
+    private var _barWidth: CGFloat
     private var _minimNum: Int
     private var _crotchetaNum: Int
     private var _quaverNum: Int
@@ -24,7 +25,7 @@ class BarSize: NSObject {
         _demiquaverNum = 0
     }
     
-    var barWidth: Float {
+    var barWidth: CGFloat {
         get {
             return _barWidth
         }
