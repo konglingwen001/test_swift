@@ -44,6 +44,9 @@
 		8D9E82A4209C9C0B003001D1 /* NavigatorItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D9E82A3209C9C0B003001D1 /* NavigatorItem.xib */; };
 		8D9E82A6209C9C42003001D1 /* NavigatorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9E82A5209C9C42003001D1 /* NavigatorItem.swift */; };
 		8D9E82A8209C9C5D003001D1 /* NavigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9E82A7209C9C5D003001D1 /* NavigatorView.swift */; };
+		8DA3B92221D718BA001C1FD5 /* ScalesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA3B91F21D718B9001C1FD5 /* ScalesView.swift */; };
+		8DA3B92321D718BA001C1FD5 /* TunerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA3B92021D718B9001C1FD5 /* TunerViewController.swift */; };
+		8DA3B92421D718BA001C1FD5 /* TunerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DA3B92121D718BA001C1FD5 /* TunerViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +110,9 @@
 		8D9E82A3209C9C0B003001D1 /* NavigatorItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigatorItem.xib; sourceTree = "<group>"; };
 		8D9E82A5209C9C42003001D1 /* NavigatorItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorItem.swift; sourceTree = "<group>"; };
 		8D9E82A7209C9C5D003001D1 /* NavigatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorView.swift; sourceTree = "<group>"; };
+		8DA3B91F21D718B9001C1FD5 /* ScalesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalesView.swift; sourceTree = "<group>"; };
+		8DA3B92021D718B9001C1FD5 /* TunerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TunerViewController.swift; sourceTree = "<group>"; };
+		8DA3B92121D718BA001C1FD5 /* TunerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TunerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +168,9 @@
 		8D2F2F6A20A4905C00A382CE /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				8DA3B91F21D718B9001C1FD5 /* ScalesView.swift */,
+				8DA3B92021D718B9001C1FD5 /* TunerViewController.swift */,
+				8DA3B92121D718BA001C1FD5 /* TunerViewController.xib */,
 				8D2F2F7620A490F100A382CE /* ToolViewController.swift */,
 				8D2F2F7720A490F100A382CE /* ToolViewController.xib */,
 			);
@@ -209,6 +218,7 @@
 		8D9E8260209C8C52003001D1 = {
 			isa = PBXGroup;
 			children = (
+				8DA3B91A21D717BE001C1FD5 /* Framework */,
 				8D9E826B209C8C52003001D1 /* test_swift */,
 				8D9E8280209C8C52003001D1 /* test_swiftTests */,
 				8D9E828B209C8C52003001D1 /* test_swiftUITests */,
@@ -277,6 +287,13 @@
 				8D2F2F6620A48B4F00A382CE /* NavigatorDelegate.swift */,
 			);
 			path = "导航栏";
+			sourceTree = "<group>";
+		};
+		8DA3B91A21D717BE001C1FD5 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Framework;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,6 +408,7 @@
 				8D9E8277209C8C52003001D1 /* LaunchScreen.storyboard in Resources */,
 				8D9E82A4209C9C0B003001D1 /* NavigatorItem.xib in Resources */,
 				8D2F2F7920A490F100A382CE /* ToolViewController.xib in Resources */,
+				8DA3B92421D718BA001C1FD5 /* TunerViewController.xib in Resources */,
 				8D9E8274209C8C52003001D1 /* Assets.xcassets in Resources */,
 				8D2F2F8320A4912300A382CE /* MyZoneViewController.xib in Resources */,
 				8D2F2F7F20A4911600A382CE /* MusicLibraryViewController.xib in Resources */,
@@ -428,6 +446,7 @@
 				8D4DFB6420A7C0EB0017B406 /* EditNoteInfo.swift in Sources */,
 				8D2F2F6720A48B4F00A382CE /* NavigatorDelegate.swift in Sources */,
 				8D2F2F7020A490D000A382CE /* SearchViewController.swift in Sources */,
+				8DA3B92221D718BA001C1FD5 /* ScalesView.swift in Sources */,
 				8D26B6F120B080F300521803 /* NoteTableViewDelegate.swift in Sources */,
 				8D9E82A8209C9C5D003001D1 /* NavigatorView.swift in Sources */,
 				8D2F2F8220A4912300A382CE /* MyZoneViewController.swift in Sources */,
@@ -443,6 +462,7 @@
 				8D4DFB7120AF9B080017B406 /* GuitarNoteTableViewCell.swift in Sources */,
 				8D4DFB6D20AF0E380017B406 /* GuitarNoteViewController.swift in Sources */,
 				8D9E826D209C8C52003001D1 /* AppDelegate.swift in Sources */,
+				8DA3B92321D718BA001C1FD5 /* TunerViewController.swift in Sources */,
 				8D4DFB6620A7C61C0017B406 /* DictDataUtil.swift in Sources */,
 				8D4DFB6820A806520017B406 /* BarSize.swift in Sources */,
 			);
@@ -616,8 +636,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NVEXHD5WYF;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = test_swift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_BUNDLE_IDENTIFIER = "konglingwen.test-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -631,8 +656,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NVEXHD5WYF;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = test_swift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_BUNDLE_IDENTIFIER = "konglingwen.test-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

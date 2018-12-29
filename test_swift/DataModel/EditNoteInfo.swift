@@ -9,9 +9,19 @@
 import Foundation
 
 class EditNoteInfo {
+    private var _lineNo: Int
     private var _barNo: Int
     private var _noteNo: Int
     private var _stringNo: Int
+    
+    var lineNo: Int {
+        get {
+            return _lineNo
+        }
+        set {
+            _lineNo = newValue
+        }
+    }
     
     var barNo: Int {
         get {
@@ -41,12 +51,14 @@ class EditNoteInfo {
     }
     
     init() {
+        _lineNo = 0
         _barNo = 0
         _noteNo = 0
         _stringNo = 0
     }
     
     init(barNo: Int, noteNo: Int, stringNo: Int) {
+        _lineNo = 0
         _barNo = barNo
         _noteNo = noteNo
         _stringNo = stringNo

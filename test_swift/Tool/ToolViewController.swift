@@ -21,7 +21,11 @@ class ToolViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func showTuner(_ sender: UIButton) {
+        let tunerViewController = TunerViewController()
+        present(tunerViewController, animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

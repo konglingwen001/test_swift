@@ -22,18 +22,29 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wdX-8r-EX5">
-                    <rect key="frame" x="0.0" y="70" width="375" height="597"/>
+                    <rect key="frame" x="0.0" y="70" width="375" height="567"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4kZ-vc-qbm">
+                    <rect key="frame" x="0.0" y="637" width="375" height="30"/>
+                    <state key="normal" title="新建吉他谱"/>
+                    <connections>
+                        <action selector="createGuitarNotes:" destination="-1" eventType="touchUpInside" id="C6f-sH-8bi"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="4kZ-vc-qbm" secondAttribute="bottom" id="6Nl-9T-VCJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4kZ-vc-qbm" secondAttribute="trailing" id="BQy-FA-rNp"/>
                 <constraint firstItem="wdX-8r-EX5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="I17-9u-bJf"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="wdX-8r-EX5" secondAttribute="bottom" id="LdQ-TG-5ZB"/>
+                <constraint firstItem="4kZ-vc-qbm" firstAttribute="top" secondItem="wdX-8r-EX5" secondAttribute="bottom" id="LdQ-TG-5ZB"/>
                 <constraint firstItem="wdX-8r-EX5" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="WIR-z5-qJc"/>
+                <constraint firstItem="4kZ-vc-qbm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="oBy-cj-lEN"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wdX-8r-EX5" secondAttribute="trailing" id="ySH-qN-r7u"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="31.5" y="91.5"/>
         </view>
     </objects>
 </document>

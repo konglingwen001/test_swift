@@ -27,108 +27,165 @@
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7kN-nP-Mcf">
                             <rect key="frame" x="0.0" y="0.0" width="318" height="56"/>
                             <subviews>
-                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Se-3a-qBz">
+                                <button opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Se-3a-qBz">
                                     <rect key="frame" x="0.0" y="0.0" width="79.5" height="56"/>
                                     <state key="normal" title="MINIM"/>
                                     <connections>
-                                        <action selector="changeNoteType:" destination="iN0-l3-epB" eventType="touchUpInside" id="cr9-i6-2Dl"/>
+                                        <action selector="changeNoteType:" destination="-1" eventType="touchUpInside" id="jr8-kf-fyV"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWP-jw-yz7">
+                                <button opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWP-jw-yz7">
                                     <rect key="frame" x="79.5" y="0.0" width="79.5" height="56"/>
                                     <state key="normal" title="CROTCHETA"/>
+                                    <connections>
+                                        <action selector="changeNoteType:" destination="-1" eventType="touchUpInside" id="5JW-zt-j3R"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1iO-8S-7la">
+                                <button opaque="NO" clipsSubviews="YES" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1iO-8S-7la">
                                     <rect key="frame" x="159" y="0.0" width="79.5" height="56"/>
                                     <state key="normal" title="QUAVER"/>
+                                    <connections>
+                                        <action selector="changeNoteType:" destination="-1" eventType="touchUpInside" id="P1u-ys-Ivf"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zN-qR-fsx">
+                                <button opaque="NO" clipsSubviews="YES" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zN-qR-fsx">
                                     <rect key="frame" x="238.5" y="0.0" width="79.5" height="56"/>
                                     <state key="normal" title="DEMIQUAVER"/>
+                                    <connections>
+                                        <action selector="changeNoteType:" destination="-1" eventType="touchUpInside" id="7xA-ci-9pb"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="LLw-to-MCy">
                             <rect key="frame" x="0.0" y="56" width="318" height="56.5"/>
                             <subviews>
-                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBX-vz-tll">
+                                <button opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBX-vz-tll">
                                     <rect key="frame" x="0.0" y="0.0" width="79.5" height="56.5"/>
                                     <state key="normal" title="1"/>
+                                    <connections>
+                                        <action selector="changeFretNo:" destination="-1" eventType="touchUpInside" id="Pds-rv-Zv6"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NQS-a9-gxr">
+                                <button opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NQS-a9-gxr">
                                     <rect key="frame" x="79.5" y="0.0" width="79.5" height="56.5"/>
                                     <state key="normal" title="2"/>
+                                    <connections>
+                                        <action selector="changeFretNo:" destination="-1" eventType="touchUpInside" id="qjZ-9Z-vxz"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ro8-x2-2yB">
+                                <button opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ro8-x2-2yB">
                                     <rect key="frame" x="159" y="0.0" width="79.5" height="56.5"/>
                                     <state key="normal" title="3"/>
+                                    <connections>
+                                        <action selector="changeFretNo:" destination="-1" eventType="touchUpInside" id="Oes-l3-0mt"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwH-0A-jGC">
+                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwH-0A-jGC">
                                     <rect key="frame" x="238.5" y="0.0" width="79.5" height="56.5"/>
                                     <state key="normal" title="ADD BAR"/>
+                                    <connections>
+                                        <action selector="addBar:" destination="-1" eventType="touchUpInside" id="Eae-iL-lhV"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ul0-2C-khR">
                             <rect key="frame" x="0.0" y="112.5" width="318" height="56"/>
                             <subviews>
-                                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qwj-hD-Chh">
+                                <button opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qwj-hD-Chh">
                                     <rect key="frame" x="0.0" y="0.0" width="79.5" height="56"/>
                                     <state key="normal" title="4"/>
+                                    <connections>
+                                        <action selector="changeFretNo:" destination="-1" eventType="touchUpInside" id="V1Q-je-Ujd"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b9d-hq-nqy">
+                                <button opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b9d-hq-nqy">
                                     <rect key="frame" x="79.5" y="0.0" width="79.5" height="56"/>
                                     <state key="normal" title="5"/>
+                                    <connections>
+                                        <action selector="changeFretNo:" destination="-1" eventType="touchUpInside" id="JWL-zi-iGK"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1v-gb-a1I">
+                                <button opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1v-gb-a1I">
                                     <rect key="frame" x="159" y="0.0" width="79.5" height="56"/>
                                     <state key="normal" title="6"/>
+                                    <connections>
+                                        <action selector="changeFretNo:" destination="-1" eventType="touchUpInside" id="vEF-GO-AF6"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTz-JM-scQ">
+                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTz-JM-scQ">
                                     <rect key="frame" x="238.5" y="0.0" width="79.5" height="56"/>
                                     <state key="normal" title="REMOVE BAR"/>
+                                    <connections>
+                                        <action selector="removeBar:" destination="-1" eventType="touchUpInside" id="4Ew-J6-iDv"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="E5C-d5-AgR">
                             <rect key="frame" x="0.0" y="168.5" width="318" height="56.5"/>
                             <subviews>
-                                <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4AM-cb-plL">
+                                <button opaque="NO" clipsSubviews="YES" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4AM-cb-plL">
                                     <rect key="frame" x="0.0" y="0.0" width="79.5" height="56.5"/>
                                     <state key="normal" title="7"/>
+                                    <connections>
+                                        <action selector="changeFretNo:" destination="-1" eventType="touchUpInside" id="vWU-46-hKG"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tK8-5s-vN2">
+                                <button opaque="NO" clipsSubviews="YES" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tK8-5s-vN2">
                                     <rect key="frame" x="79.5" y="0.0" width="79.5" height="56.5"/>
                                     <state key="normal" title="8"/>
+                                    <connections>
+                                        <action selector="changeFretNo:" destination="-1" eventType="touchUpInside" id="fY8-jQ-Mnc"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kVY-Iu-mcZ">
+                                <button opaque="NO" clipsSubviews="YES" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kVY-Iu-mcZ">
                                     <rect key="frame" x="159" y="0.0" width="79.5" height="56.5"/>
                                     <state key="normal" title="9"/>
+                                    <connections>
+                                        <action selector="changeFretNo:" destination="-1" eventType="touchUpInside" id="I7Y-IR-sWX"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ywM-9M-43x">
+                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ywM-9M-43x">
                                     <rect key="frame" x="238.5" y="0.0" width="79.5" height="56.5"/>
                                     <state key="normal" title="ADD NOTE"/>
+                                    <connections>
+                                        <action selector="addNote:" destination="-1" eventType="touchUpInside" id="pvz-9E-1HW"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="e42-3H-wV8">
                             <rect key="frame" x="0.0" y="225" width="318" height="56"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kdd-0U-lgW">
+                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kdd-0U-lgW">
                                     <rect key="frame" x="0.0" y="0.0" width="79.5" height="56"/>
                                     <state key="normal" title="OK"/>
+                                    <connections>
+                                        <action selector="ok:" destination="-1" eventType="touchUpInside" id="lfS-FV-QaQ"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZQ-2v-rIk">
+                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZQ-2v-rIk">
                                     <rect key="frame" x="79.5" y="0.0" width="79.5" height="56"/>
                                     <state key="normal" title="0"/>
+                                    <connections>
+                                        <action selector="changeFretNo:" destination="-1" eventType="touchUpInside" id="TDG-hB-V6X"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNU-wo-4b4">
+                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNU-wo-4b4">
                                     <rect key="frame" x="159" y="0.0" width="79.5" height="56"/>
                                     <state key="normal" title="CANCEL"/>
+                                    <connections>
+                                        <action selector="cancel:" destination="-1" eventType="touchUpInside" id="iBN-uC-tJn"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kr6-jq-35o">
+                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kr6-jq-35o">
                                     <rect key="frame" x="238.5" y="0.0" width="79.5" height="56"/>
                                     <state key="normal" title="REMOVE NOTE"/>
+                                    <connections>
+                                        <action selector="removeNote:" destination="-1" eventType="touchUpInside" id="Ha6-sT-tuN"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>

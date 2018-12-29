@@ -27,12 +27,13 @@ class NotesModel: NSObject {
     
     private static var instance: NotesModel? = nil
     
-    let fileManager: FileManager
-    let documentPath: String
-    let tmpPath: String
+    var fileManager: FileManager = FileManager.default
+    var documentPath: String = ""
+    var tmpPath: String = ""
+    var plistPath: String = ""
     var guitarNotesFiles: NSMutableArray = NSMutableArray()
     var rootNoteDic: NSMutableDictionary? = nil
-    var currEditNote: EditNoteInfo?
+    var currEditNote: EditNoteInfo? = nil
     var notesSizeArray: NSMutableArray = NSMutableArray()
     
     static func getInstance() -> NotesModel {
@@ -43,6 +44,9 @@ class NotesModel: NSObject {
     }
     
     private override init() {
+        
+        super.init()
+        
         fileManager = FileManager.default
         let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
         documentPath = paths[0] + "/"
@@ -55,16 +59,7 @@ class NotesModel: NSObject {
         
         try? fileManager.copyItem(atPath: path, toPath: documentPath + "天空之城.plist")
         
-        do {
-            let array = try fileManager.contentsOfDirectory(atPath: paths[0])
-            for fileName in array {
-                if fileName.hasSuffix(".plist") {
-                    guitarNotesFiles.add(fileName)
-                }
-            }
-        } catch let error as NSError {
-            print("get file path error : \(error)")
-        }
+        reloadGuitarNotesFiles()
     }
     
     override func copy() -> Any {
@@ -73,6 +68,58 @@ class NotesModel: NSObject {
     
     override func mutableCopy() -> Any {
         return self
+    }
+    
+    func reloadGuitarNotesFiles() {
+        do {
+            guitarNotesFiles.removeAllObjects()
+            let array = try fileManager.contentsOfDirectory(atPath: documentPath)
+            for fileName in array {
+                if fileName.hasSuffix(".plist") {
+                    guitarNotesFiles.add(fileName.split(separator: ".")[0])
+                }
+            }
+        } catch let error as NSError {
+            print("get file path error : \(error)")
+        }
+    }
+    
+    func showFiles() {
+        do {
+            NSLog("---------------------------")
+            let array = try fileManager.contentsOfDirectory(atPath: documentPath)
+            for fileName in array {
+                NSLog("%@", fileName)
+            }
+        } catch let error as NSError {
+            print("get file path error : \(error)")
+        }
+    }
+    
+    func checkGuitarNotesChanged() -> Bool {
+        let oldRootDic: NSDictionary = NSDictionary(contentsOfFile: plistPath)!
+        if oldRootDic.isEqual(to: rootNoteDic as! [AnyHashable : Any]) {
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    func saveToFile(title: String) -> Bool {
+        let filePath = documentPath + title + ".plist"
+        let result: Bool = (rootNoteDic?.write(toFile: filePath, atomically: true))!
+        reloadGuitarNotesFiles()
+        return result
+    }
+    
+    func deleteFile(title: String) {
+        let filePath: String = documentPath + title + ".plist"
+        do {
+            try fileManager.removeItem(atPath: filePath)
+        } catch let error as NSError {
+            print("get file path error : \(error)")
+        }
+        reloadGuitarNotesFiles()
     }
     
     func getLineWidth() -> CGFloat {
@@ -117,7 +164,7 @@ class NotesModel: NSObject {
     }
     
     func getGuitarNotesFromGuitarNotesTitle(guitarNotesTitle: String) -> NSMutableDictionary {
-        let plistPath = documentPath + guitarNotesTitle
+        plistPath = documentPath + guitarNotesTitle + ".plist"
         let rootDic = NSMutableDictionary(contentsOfFile: plistPath)
         return rootDic!
     }
@@ -127,31 +174,35 @@ class NotesModel: NSObject {
     }
     
     func getBarNum() -> Int {
-        return getBarNoDataArray().count
+        return getBarNoDataArray()!.count
     }
     
-    func getBarNoDataArray() -> NSMutableArray {
-        return rootNoteDic!.value(forKey: "GuitarNotes") as! NSMutableArray
+    func getBarNoDataArray() -> NSMutableArray? {
+        let barNoDataArray: NSMutableArray? = DictDataUtil.getBarNoDataArray(rootNoteDic: rootNoteDic!)
+        return barNoDataArray
     }
     
-    func getNoteNoDataArray(barNo: Int) -> NSMutableArray {
+    func getNoteNoDataArray(barNo: Int) -> NSMutableArray? {
         let barNoDataArray: NSMutableArray? = getBarNoDataArray()
-        return barNoDataArray!.object(at: barNo) as! NSMutableArray
+        let noteNoDataArray: NSMutableArray? = barNoDataArray!.object(at: barNo) as? NSMutableArray
+        return noteNoDataArray
     }
     
-    func getNoteNoData(barNo: Int, noteNo: Int) -> NSMutableDictionary {
+    func getNoteNoData(barNo: Int, noteNo: Int) -> NSMutableDictionary? {
         let noteNoDataArray: NSMutableArray? = getNoteNoDataArray(barNo: barNo)
-        return noteNoDataArray!.object(at: noteNo) as! NSMutableDictionary
+        return noteNoDataArray![noteNo] as? NSMutableDictionary
     }
     
-    func getNotesArray(barNo: Int, noteNo: Int) -> NSMutableArray {
+    func getNotesArray(barNo: Int, noteNo: Int) -> NSMutableArray? {
         let noteNoData: NSMutableDictionary? = getNoteNoData(barNo: barNo, noteNo: noteNo)
-        return noteNoData?.value(forKey: "noteArray") as! NSMutableArray
+        let notesArray: NSMutableArray? = DictDataUtil.getNotesArray(noteNoData: noteNoData!)
+        return notesArray
     }
     
     func getNoteType(barNo: Int, noteNo: Int) -> String {
         let noteNoData: NSMutableDictionary? = getNoteNoData(barNo: barNo, noteNo: noteNo)
-        return noteNoData?.value(forKey: "NoteType") as! String
+        let noteType: String = DictDataUtil.getNoteType(noteNoData: noteNoData!)
+        return noteType
     }
     
     func getNoteData(barNo: Int, noteNo: Int, stringNo: Int) -> NSMutableDictionary? {
@@ -182,7 +233,7 @@ class NotesModel: NSObject {
         let noteNo = currEditNote!.noteNo
         
         let noteNoData: NSMutableDictionary? = getNoteNoData(barNo: barNo, noteNo: noteNo)
-        noteNoData?.setValue(noteType, forKey: "NoteType")
+        DictDataUtil.setNoteType(noteNoData: noteNoData!, noteType: noteType)
     }
     
     func changeEditNoteFretNo(fretNo: Int) {
@@ -198,8 +249,8 @@ class NotesModel: NSObject {
             let newNote = NSMutableDictionary()
             DictDataUtil.setStringNo(note: newNote, stringNo: stringNo)
             DictDataUtil.setFretNo(note: newNote, fretNo: fretNo)
-            DictDataUtil.setPlayType(note: newNote, playType: DictDataUtil.getNoteType(noteNoData: notesArray.object(at: 0) as! NSMutableDictionary))
-            notesArray.add(newNote)
+            DictDataUtil.setPlayType(note: newNote, playType: DictDataUtil.getPlayType(note: notesArray![0] as! NSMutableDictionary))
+            notesArray!.add(newNote)
         } else { // 当音符编辑框所在位置有音符时，修改原有音符
             var newFretNo = fretNo
             let oldFretNo = DictDataUtil.getFretNo(note: editNote!)
@@ -220,11 +271,11 @@ class NotesModel: NSObject {
         let noteNo = currEditNote!.noteNo
         
         let notesArray = getNotesArray(barNo: barNo, noteNo: noteNo);
-        let note: NSMutableDictionary? = notesArray.object(at: 0) as? NSMutableDictionary
+        let note: NSMutableDictionary? = notesArray![0] as? NSMutableDictionary
         let tmpFretNo = DictDataUtil.getFretNo(note: note!)
         let tmpStringNo = DictDataUtil.getStringNo(note: note!)
         if (tmpFretNo == -1 && tmpStringNo == -1) {
-            notesArray.remove(note!);
+            notesArray!.remove(note!);
         }
     }
     
@@ -238,17 +289,17 @@ class NotesModel: NSObject {
         let notesArray = NSMutableArray()
         notesArray.add(note)
         DictDataUtil.setNotesArray(noteNoData: noteNoData, notesArray: notesArray)
-        noteNoArray.add(noteNoData);
+        noteNoArray!.add(noteNoData);
     }
     
     func addBarNoDataAtIndex(barNoData: NSMutableArray, barNo: Int) {
         let barNoDataArray: NSMutableArray? = getBarNoDataArray()
-        barNoDataArray?.insert(barNoDataArray!, at: barNo)
+        barNoDataArray!.insert(barNoData, at: barNo)
     }
     
     func removeBarNoData(barNo: Int) {
         let barNoDataArray: NSMutableArray? = getBarNoDataArray();
-        barNoDataArray!.remove(barNo);
+        barNoDataArray!.removeObject(at: barNo)
         if (barNoDataArray!.count > 0) {
             if (barNo == 0) {
                 setCurrEditNo(barNo: 0, noteNo: 0, stringNo: 1);
@@ -282,13 +333,13 @@ class NotesModel: NSObject {
     }
     
     func addNoteNoDataAtIndex(noteNoData: NSMutableDictionary, barNo: Int, noteNo: Int) {
-        let noteNoDataArray: NSMutableArray = getNoteNoDataArray(barNo: barNo);
-        noteNoDataArray.insert(noteNoData, at: noteNo)
+        let noteNoDataArray: NSMutableArray? = getNoteNoDataArray(barNo: barNo);
+        noteNoDataArray!.insert(noteNoData, at: noteNo)
     }
     
     func removeNoteNoData(barNo: Int, noteNo: Int) {
         let noteNoDataArray: NSMutableArray? = getNoteNoDataArray(barNo: barNo);
-        noteNoDataArray!.remove(noteNo);
+        noteNoDataArray!.removeObject(at: noteNo);
         
         if (noteNoDataArray!.count == 0) {
             removeBarNoData(barNo: barNo);
@@ -303,7 +354,6 @@ class NotesModel: NSObject {
             }
         }
     }
-    
     
     func calBarSizeWithNoteNoArray(noteNoDataArray: NSMutableArray, currentMinimWidth: CGFloat, currentCrotchetaWidth: CGFloat, currentQuaverWidth: CGFloat, currentDemiquaverWidth: CGFloat) -> BarSize {
     

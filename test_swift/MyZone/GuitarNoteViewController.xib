@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GuitarNoteViewController" customModule="test_swift" customModuleProvider="target">
             <connections>
+                <outlet property="editNoteView" destination="N7f-nB-VXr" id="YKX-9v-xCz"/>
+                <outlet property="editNoteViewHeight" destination="1KE-Uy-0A4" id="6sz-Hq-0kQ"/>
                 <outlet property="guitarNoteViewList" destination="lcg-6f-Myt" id="TM8-JC-pD0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,14 +24,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lcg-6f-Myt">
-                    <rect key="frame" x="0.0" y="20" width="375" height="347"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N7f-nB-VXr" customClass="EditNoteView" customModule="test_swift" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="367" width="375" height="300"/>
+                    <rect key="frame" x="0.0" y="667" width="375" height="0.0"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="300" id="1KE-Uy-0A4"/>
+                        <constraint firstAttribute="height" id="1KE-Uy-0A4"/>
                     </constraints>
                 </view>
             </subviews>

@@ -43,6 +43,14 @@ class DictDataUtil: NSObject {
         noteNoData.setValue(noteType, forKey: "BarNum")
     }
     
+    static func getBarNoDataArray(rootNoteDic: NSMutableDictionary) -> NSMutableArray? {
+        return rootNoteDic.value(forKey: "GuitarNotes") as? NSMutableArray
+    }
+    
+    static func setBarNoDataArray(rootNoteDic: NSMutableDictionary, barNoDataArray: NSMutableArray) {
+        rootNoteDic.setValue(barNoDataArray, forKey: "GuitarNotes")
+    }
+    
     static func getNoteType(noteNoData: NSMutableDictionary) -> String {
         return noteNoData.value(forKey: "NoteType") as! String
     }

@@ -30,13 +30,18 @@ class EditNoteView: UIView {
     @IBOutlet var btnAddNote: UIButton!
     @IBOutlet var btnRemoveNote: UIButton!
     
+    var notesModel: NotesModel? = nil
+    var delegate: NoteTableViewDelegate? = nil
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        notesModel = NotesModel.getInstance()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
+        notesModel = NotesModel.getInstance()
         //fatalError("init(coder:) has not been implemented")
     }
     
@@ -59,19 +64,40 @@ class EditNoteView: UIView {
     }
     
     @IBAction func changeNoteType(_ sender: UIButton) {
+        let noteType: String = "\(sender.tag)"
+        let lineNo: Int = notesModel!.getCurrEditNote().lineNo
+        notesModel?.changeEditNoteType(noteType: noteType)
+        self.delegate!.refreshRow(row: lineNo)
     }
     
     @IBAction func addBar(_ sender: UIButton) {
+        let barNo: Int = notesModel!.getCurrEditNote().barNo
+        notesModel!.addBlankBarNoData(barNo: barNo)
+        self.delegate!.reload()
     }
-    
     @IBAction func removeBar(_ sender: UIButton) {
+        let barNo: Int = notesModel!.getCurrEditNote().barNo
+        notesModel!.removeBarNoData(barNo: barNo)
+        self.delegate!.reload()
     }
     @IBAction func addNote(_ sender: UIButton) {
+        let barNo: Int = notesModel!.getCurrEditNote().barNo
+        let noteNo: Int = notesModel!.getCurrEditNote().noteNo
+        notesModel!.addBlankNoteNoData(barNo: barNo, noteNo: noteNo)
+        self.delegate!.reload()
     }
     @IBAction func removeNote(_ sender: UIButton) {
+        let barNo: Int = notesModel!.getCurrEditNote().barNo
+        let noteNo: Int = notesModel!.getCurrEditNote().noteNo
+        notesModel!.removeNoteNoData(barNo: barNo, noteNo: noteNo)
+        self.delegate!.reload()
     }
     
     @IBAction func changeFretNo(_ sender: UIButton) {
+        let fretNo: Int = sender.tag
+        let lineNo: Int = notesModel!.getCurrEditNote().lineNo
+        notesModel!.changeEditNoteFretNo(fretNo: fretNo)
+        self.delegate!.refreshRow(row: lineNo)
     }
     
     @IBAction func ok(_ sender: UIButton) {

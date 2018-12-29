@@ -24,36 +24,45 @@ class MyZoneViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.guitarNoteList.register(UITableViewCell().classForCoder, forCellReuseIdentifier: "cell")
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.guitarNoteList.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBAction func createGuitarNotes(_ sender: UIButton) {
+        // TODO
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notesModel!.getGuitarNotesFileNum() + 1
+        return notesModel!.getGuitarNotesFileNum()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        if indexPath.row == notesModel!.getGuitarNotesFileNum() {
-            cell.textLabel?.text = "新建吉他谱"
-        } else {
-            cell.textLabel?.text = notesModel!.getGuitarNotesFileName(index: indexPath.row)
-        }
+        cell.textLabel?.text = notesModel!.getGuitarNotesFileName(index: indexPath.row)
+
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row < notesModel!.getGuitarNotesFileNum() {
-            notesModel?.setGuitarNotesWithNotesTitle(noteTitle: (tableView.cellForRow(at: indexPath)?.textLabel?.text)!)
-            let guitarNoteViewController = UINavigationController(rootViewController: GuitarNoteViewController())
-            
-            present(guitarNoteViewController, animated: true, completion: nil)
-        } else {
-            // TODO
-        }
+        notesModel?.setGuitarNotesWithNotesTitle(noteTitle: (tableView.cellForRow(at: indexPath)?.textLabel?.text)!)
+        let guitarNoteViewController = UINavigationController(rootViewController: GuitarNoteViewController())
+        
+        present(guitarNoteViewController, animated: true, completion: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        notesModel!.deleteFile(title: tableView.cellForRow(at: indexPath)!.textLabel!.text!)
+        self.guitarNoteList.reloadData()
     }
 
     /*

@@ -112,8 +112,8 @@ class GuitarNoteTableViewCell: UITableViewCell {
             noteCenterX = barStartX + barWidthArray[barNo - startBarNo]
     
             let noteNoArray = notesModel!.getNoteNoDataArray(barNo: barNo)
-            for noteNo in 0 ..< noteNoArray.count {
-                let notes = DictDataUtil.getNotesArray(noteNoData: noteNoArray[noteNo] as! NSMutableDictionary)
+            for noteNo in 0 ..< noteNoArray!.count {
+                let notes = DictDataUtil.getNotesArray(noteNoData: noteNoArray![noteNo] as! NSMutableDictionary)
                 let noteType = notesModel!.getNoteType(barNo: barNo, noteNo: noteNo)
             
                 // 设定音符X坐标
@@ -182,7 +182,7 @@ class GuitarNoteTableViewCell: UITableViewCell {
             var flatSum: Float = 0;
             var preNoteType: String = "";
             let noteNoArray = notesModel!.getNoteNoDataArray(barNo: barNo);
-            for noteNo in 0 ..< noteNoArray.count {
+            for noteNo in 0 ..< noteNoArray!.count {
                 let noteType = notesModel!.getNoteType(barNo: barNo, noteNo: noteNo)
                 
                 context.setLineWidth(2)
@@ -328,6 +328,7 @@ class GuitarNoteTableViewCell: UITableViewCell {
     func calRectFromPoint(point: CGPoint) -> Bool {
     
         let resultNote: EditNoteInfo = EditNoteInfo()
+        resultNote.lineNo = self.lineNo
     
         var barStartX = NotesModel.LINE_START_X     // 小节行起始X坐标
         let barStartY = NotesModel.LINE_START_Y     // 小节行起始Y坐标
@@ -359,7 +360,7 @@ class GuitarNoteTableViewCell: UITableViewCell {
         var currentWidth: CGFloat = 0
     
         let noteNoArray = notesModel!.getNoteNoDataArray(barNo: barNo)
-        for noteNo in 0 ..< noteNoArray.count {
+        for noteNo in 0 ..< noteNoArray!.count {
             let noteType = notesModel!.getNoteType(barNo: barNo, noteNo: noteNo)
     
             currentWidth = lineSize.getNoteWidth(noteType: noteType)
@@ -378,7 +379,7 @@ class GuitarNoteTableViewCell: UITableViewCell {
                 }
                 break;
                 } else {
-                    if (noteNo == noteNoArray.count - 1) {
+                    if (noteNo == noteNoArray!.count - 1) {
                         resultNote.barNo = barNo
                         resultNote.noteNo = noteNo
                         break;
